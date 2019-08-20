@@ -1,13 +1,146 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ul{
+    margin-right: 16px;
+    position: center;
+    list-style-type: none;
+    margin-left: -18px;
 }
+
+.verticalItem{
+    background-color: white;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    display: block;
+    width: 100%
+}
+
+.greeting{
+    margin-left: 16px;
+    margin-top:16px
+}
+
+.label{
+    margin-right: 8px;
+}
+
+.material-switch {
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.verticalText{
+    color: #1e2322;
+    height: 32px;
+    text-decoration: none;
+}
+
+#barcont{
+    background-color: white;
+    position: absolute;
+    top: 6%;
+    left: 0;
+    height: 94%;
+    width: 100%;
+}
+
+#SBbutton {
+    font-palette: light;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -6px;
+    padding: 0;
+    text-align: center;
+}
+#SBheader{
+    font-palette: light;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -6px;
+    padding: 0;
+    text-align: center;
+}
+
+.upperBar {
+    position: page;
+    background-color: rgb(3, 169, 244);
+    color: white;
+    padding-bottom:34px;
+    padding-top:10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 1.5em;
+}
+
+.content{
+    position: absolute;
+    font: 14px "Century Gothic", Futura, sans-serif;
+    height:93%;
+    width: 99%;
+    top: 50px;
+    left:5px;
+    right:0px;
+    bottom:0px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+
+.container{
+    border: 1px solid red;
+    height: 100%;
+
+}
+.display-linebreak {
+    white-space: pre;
+}
+.image{
+    padding-bottom: 16px;
+    padding-top: 16px;
+    max-width:200px;
+    max-height:200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.imageContainer{
+    position:relative;
+    min-height: 200px;
+    min-width: 200px;
+}
+
+#settingsGear{
+    color: white;
+    margin-bottom: 4px;
+    margin-top: -3px;
+    position: center;
+    height:30px;
+    float: right;
+}
+
+.content::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.content::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.content::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+}
+
+
