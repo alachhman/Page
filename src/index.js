@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Sidebar from "react-sidebar";
@@ -10,7 +10,6 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { Component } from "react";
 import Switch from "react-switch";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -18,10 +17,21 @@ import Accordion from "react-bootstrap/Accordion";
 import "./UnitDB/index.js";
 import {unitList} from "./UnitDB";
 import Table from "react-bootstrap/Table";
+import {Dropdown} from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 //import Form from "react-bootstrap/Form"
 const mql = window.matchMedia(`(min-width: 800px)`);
 let units = unitList;
+var curUnit = 1;
+var curEnemyMates = 1;
+var curBoost = 1;
+var curMovePower = 0;
+var curMoveType = "";
+var curAtk = 0;
+var curDefBoost = 0;
 var curPage = 3;
+var curLevel = 0;
+var curtype = "";
 class Home extends React.Component{
     constructor(props) {
         super(props);
@@ -30,7 +40,6 @@ class Home extends React.Component{
             sidebarOpen: false,
             modalShow: false,
             header: "Units",
-            search: "",
         };
         this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
@@ -58,7 +67,7 @@ class Home extends React.Component{
             case "test1" : curPage = 1; break;
             case "test2" : curPage = 2; break;
             case "Units" : curPage = 3; break;
-            case "blank" : curPage = 4; break;
+            case "Calc" : curPage = 4; break;
             default : curPage = 1;
         }
     }
@@ -73,10 +82,8 @@ class Home extends React.Component{
                         </div>
                             <div id = "barcont">
                                 <ul id={"vert"}>
-                                    <li className={"verticalItem"}><a className={'verticalText'} href = "#test1" onClick={() => this.changeHeader("test1")}><b>test1</b></a></li>
-                                    <li className={"verticalItem"}><a className={'verticalText'} href = "#test2" onClick={() => this.changeHeader("test2")}><b>test2</b></a></li>
                                     <li className={"verticalItem"}><a className={'verticalText'} href = "#Units" onClick={() => this.changeHeader("Units")}><b>Units</b></a></li>
-                                    <li className={"verticalItem"}><a className={'verticalText'} href = "#blank" onClick={() => this.changeHeader("blank")}><b>blank</b></a></li>
+                                    <li className={"verticalItem"}><a className={'verticalText'} href = "#Calc" onClick={() => this.changeHeader("Calc")}><b>Calc</b></a></li>
                                 </ul>
                             </div>
                     </div>
@@ -201,33 +208,21 @@ class Content extends React.Component{
     constructor() {
         super();
         this.state = { search : ""};
-        this.searchChanged = this.searchChanged.bind(this);
+        this.unitChanged = this.unitChanged.bind(this);
     }
-    searchChanged(value){
+    unitChanged(value){
         this.setState({search : value});
     }
     render() {
         switch (curPage) {
             case 1: return(
-                <UnitBuilder/>
+                <Test/>
             );
             case 2: return(
                 <Test/>
             );
             case 3: return(
                 <div>
-                    {/*
-                    <Form>
-                        <Form.Row>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="search" placeholder="Unit Name" inputRef={(ref) => { this.email = ref }} required onChange={()=>console.log(this.props.inputRef)}/>
-                            </Form.Group>
-                            <Button variant="primary" type="submit" size="sm">
-                                Search
-                            </Button>
-                        </Form.Row>
-                    </Form>
-                    */}
                     <UTom units={units} search={this.state.search}/>
                 </div>
             );
@@ -243,40 +238,299 @@ class Content extends React.Component{
 }
 
 class UnitBuilder extends React.Component{
-    constructor() {
-        super();
-        this.state = { button : 1};
-        this.incrementClicked = this.incrementClicked.bind(this);
-        this.resetClicked = this.resetClicked.bind(this);
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchQueryA: '',
+            searchQueryB: '',
+            selectedA: null,
+            selectedB: null,
+            unitRefA: 1,
+            unitRefB: 1,
+            bitFlip: false
+        };
+        this.changeState = this.changeState.bind(this);
     }
-    incrementClicked(){
-        curPage += 1;
-        this.setState({button : curPage});
-    }
-    resetClicked(){
-        curPage = 1;
-        this.setState({button: curPage});
-    }
+    onChangeAttacker = (e, data) => {
+        console.log(data.value);
+        var id = 1;
+        curUnit = data.value;
+        curAtk = units[curUnit].pokemon.stats[1];
+        curtype = units[curUnit].type;
+        if(units[curUnit].rarity === 5){
+            curLevel = 100;
+        }else if(units[curUnit].rarity === 4){
+            curLevel = 95;
+        }else if(units[curUnit].rarity === 3){
+            curLevel = 90;
+        }
+        for(var x in units){
+            if((units[x].name + " & " + units[x].pokemon.name) === (units[data.value].name + " & " + units[data.value].pokemon.name)){
+                id = units[x].id
+            }
+        }
+        this.setState({ selectedA: data.value, unitRefA: id});
+    };
+    onChangeDefender = (e, data) => {
+        console.log(data.value);
+        var id = 1;
+        for(var x in units){
+            if((units[x].name + " & " + units[x].pokemon.name) === (units[data.value].name + " & " + units[data.value].pokemon.name)){
+                id = units[x].id
+            }
+        }
+        this.setState({ selectedB: data.value, unitRefB: id});
+    };
+
+    onSearchChangeAttacker = (e, data) => {
+        console.log(data.searchQueryA);
+        this.setState({ searchQueryA: data.searchQueryA });
+    };
+    onSearchChangeDefender = (e, data) => {
+        console.log(data.searchQueryB);
+        this.setState({ searchQueryB: data.searchQueryB });
+    };
+
+    changeState(){
+        this.setState({bitFlip: !this.state.bitFlip});
+    };
+
     render() {
+        const { searchQueryA, selectedA, searchQueryB, selectedB } = this.state;
         return(
             <div>
-                <div>
-                    <text>{curPage}</text><nl/>
-                </div>
-                <div>
-                    <Button
-                        variant={"primary"}
-                        onClick={() => this.incrementClicked()}
-                        size={"sm"}
-                    >+1</Button>
-                    <Button
-                        variant={"danger"}
-                        onClick={() => this.resetClicked()}
-                        size={"sm"}
-                    >reset</Button>
-                </div>
+                <Card>
+                    <Card.Body>
+                        <Row>
+                            <Col>
+                                <Dropdown
+                                    placeholder='Attacker'
+                                    button
+                                    className='icon'
+                                    fluid
+                                    labeled
+                                    options={dropdownSelection()}
+                                    search
+                                    text={searchQueryA}
+                                    searchQuery={searchQueryA}
+                                    value={selectedA}
+                                    onChange={this.onChangeAttacker}
+                                    onSearchChange={this.onSearchChangeAttacker}
+                                />
+                                <br/>
+                                <div>
+                                    <Card>
+                                        <Card.Body>
+                                            <Card>
+                                                <Card.Body>
+                                                    <CardDeck>
+                                                        <Card>
+                                                            <div className={"imageContainerCalc"}>
+                                                                <img className={"imageCalc"} src={(units[this.state.unitRefA].name === "MC")?"https://www.serebii.net/pokemonmasters/syncpairs/maincharacter.png":"https://www.serebii.net/pokemonmasters/syncpairs/" + units[this.state.unitRefA].name.toLowerCase() + ".png"} alt={"alt"}/>
+                                                            </div>
+                                                        </Card>
+                                                        <Card>
+                                                            <Card.Body>
+                                                                <Table bordered hover size="sm">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td><b>HP</b></td>
+                                                                        <td>{units[this.state.unitRefA].pokemon.stats[0]}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><b>ATK</b></td>
+                                                                        <td>{units[this.state.unitRefA].pokemon.stats[1]}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><b>DEF</b></td>
+                                                                        <td>{units[this.state.unitRefA].pokemon.stats[2]}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><b>SPATK</b></td>
+                                                                        <td>{units[this.state.unitRefA].pokemon.stats[3]}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><b>SPDEF</b></td>
+                                                                        <td>{units[this.state.unitRefA].pokemon.stats[4]}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><b>SPD</b></td>
+                                                                        <td>{units[this.state.unitRefA].pokemon.stats[5]}</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </Table>
+                                                            </Card.Body>
+                                                        </Card>
+                                                        <Card>
+                                                            <Card.Body>
+                                                                <Table bordered hover size="sm">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td><b>Type</b></td>
+                                                                        <td>{units[this.state.unitRefA].type}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><b>Weakness</b></td>
+                                                                        <td>{units[this.state.unitRefA].weakness}</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </Table>
+                                                            </Card.Body>
+                                                        </Card>
+                                                    </CardDeck>
+                                                    <br/>
+                                                    <MoveDisplay action={this.changeState}/>
+                                                </Card.Body>
+                                            </Card>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <br/>
+                                <Row>
+                                    <Col>
+                                        <Dropdown
+                                            placeholder='# enemies'
+                                            button
+                                            className='icon'
+                                            fluid
+                                            labeled
+                                            options={[
+                                                {key: 1, value: 1, text: 1},
+                                                {key: 2, value: 2, text: 2},
+                                                {key: 3, value: 3, text: 3}
+                                            ]}
+                                            search
+                                            onChange={(e, data)=>{
+                                                curEnemyMates = data.value;
+                                                this.setState({bitFlip: !this.state.bitFlip});
+                                            }}
+                                        />
+                                    </Col>
+                                    <Col>
+                                        <Dropdown
+                                            placeholder='ATK/SPAtk Boost'
+                                            button
+                                            className='icon'
+                                            fluid
+                                            labeled
+                                            options={[
+                                                {key: 1, value: 1, text: 1},
+                                                {key: 2, value: 2, text: 2},
+                                                {key: 4, value: 4, text: 4},
+                                                {key: 6, value: 6, text: 6},
+                                            ]}
+                                            search
+                                            onChange={(e, data)=>{
+                                                curBoost = data.value;
+                                                this.setState({bitFlip: !this.state.bitFlip});
+                                            }}
+                                        />
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col>
+                                <Dropdown
+                                    placeholder='Defender'
+                                    button
+                                    className='icon'
+                                    fluid
+                                    labeled
+                                    options={dropdownSelection()}
+                                    search
+                                    text={searchQueryB}
+                                    searchQuery={searchQueryB}
+                                    value={selectedB}
+                                    onChange={this.onChangeDefender}
+                                    onSearchChange={this.onSearchChangeDefender}
+                                />
+                                <br/>
+                                {damageReading(units[this.state.unitRefB])}
+                                <Row>
+                                    <Col>
+                                        <Dropdown
+                                            placeholder='Def/SPDef Boost'
+                                            button
+                                            className='icon'
+                                            fluid
+                                            labeled
+                                            options={[
+                                                {key: 1, value: 1, text: 1},
+                                                {key: 2, value: 2, text: 2},
+                                                {key: 4, value: 4, text: 4},
+                                                {key: 6, value: 6, text: 6},
+                                            ]}
+                                            search
+                                            onChange={(e, data)=>{
+                                                curDefBoost = data.value;
+                                                this.setState({bitFlip: !this.state.bitFlip});
+                                            }}
+                                        />
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
             </div>
-        )
+        );
+    }
+}
+class MoveDisplay extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchMove: '',
+            selectedMove: null,
+            moveRef: 1,
+            bitFlip: false,
+        }
+    }
+
+    onChangeMove = (e, data) => {
+        console.log(data.value);
+        curMovePower = units[curUnit].moves[data.value].power;
+        curMoveType = units[curUnit].moves[data.value].type;
+        this.setState({ selectedMove: data.value, moveRef: data.value});
+
+    };
+
+    onSearchChangeMove = (e, data) => {
+        console.log(data.searchMove);
+        this.setState({ searchMove: data.searchMove });
+    };
+
+    render() {
+        const { searchMove, selectedMove} = this.state;
+        return(
+            <Card>
+                <Card.Body>
+                    <Row>
+                        <Col>
+                            <Dropdown
+                                placeholder='Move'
+                                button
+                                className='icon'
+                                fluid
+                                labeled
+                                options={moveMap()}
+                                search
+                                text={searchMove}
+                                searchQuery={searchMove}
+                                value={selectedMove}
+                                onChange={this.onChangeMove}
+                                onSearchChange={this.onSearchChangeMove}
+                            />
+                        </Col>
+                        <Col>
+                            <Button size={"sm"} onClick={this.props.action} className={"submitButton"}>
+                                Calculate
+                            </Button>
+                        </Col>
+                    </Row>
+                    {moveReading(units[curUnit].moves[this.state.moveRef])}
+                </Card.Body>
+            </Card>
+        );
     }
 }
 class Test extends React.Component{
@@ -321,55 +575,6 @@ class Test extends React.Component{
         )
     }
 }
-// eslint-disable-next-line
-class Carddeck extends React.Component{
-    render(){
-        return(
-            <CardDeck>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Card.Text>
-                            This card has supporting text below as a natural lead-in to additional
-                            content.{' '}
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to
-                            show that equal height action.
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-            </CardDeck>
-        )
-    }
-}
 
 class SwitchExample extends Component {
     constructor() {
@@ -404,245 +609,36 @@ class SwitchExample extends Component {
     }
 }
 
-ReactDOM.render(<Home/>, document.getElementById("root"));
-
+const dropdownSelection = ()=>{
+    var count = -1;
+    return units.map((unit) => {
+        count++;
+        return{
+            key: count,
+            value: count,
+            text: unit.name + " & " + unit.pokemon.name
+        }
+    });
+};
+function moveMap(){
+    var count = -1;
+    var moves = units[curUnit].moves;
+    return moves.map((move)=>{
+        count++;
+        return({
+            key: count,
+            value: count,
+            text: move.name
+        })
+    })
+}
 function UTom(props){
     const search = props.search;
     const units = props.units;
     const listItems = units.map((unit)=>{
             if(unit.name === search || search === ""){
                 return(
-                    <div>
-                        <Accordion>
-                            <Card>
-                                <Accordion.Toggle as={Card.Header} eventKey="0">
-                                    {(unit.name.includes("Sygna Suit"))?unit.name.substring("Sygna Suit ".length,unit.name.length) + " & " + unit.pokemon.name:unit.name + " & " + unit.pokemon.name}
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                        <Card>
-                                            <Card.Body>
-                                                <CardDeck>
-                                                    <Card>
-                                                        <div className={"imageContainer"}>
-                                                            <img className={"image"} src={(unit.name === "MC")?"https://www.serebii.net/pokemonmasters/syncpairs/maincharacter.png":"https://www.serebii.net/pokemonmasters/syncpairs/" + unit.name.toLowerCase() + ".png"} alt={"alt"}/>
-                                                        </div>
-                                                    </Card>
-                                                    <Card>
-                                                        <Card.Body>
-                                                            <Table bordered hover size="sm">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td><b>Type</b></td>
-                                                                    <td>{unit.type}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>Weakness</b></td>
-                                                                    <td>{unit.weakness}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>Rarity</b></td>
-                                                                    <td>{unit.rarity} stars</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>Role</b></td>
-                                                                    <td>{unit.role}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>Passives</b></td>
-                                                                    <td>{unit.passives.join()}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>Sync Strength</b></td>
-                                                                    <td>{unit.syncMove.basePower} - {unit.syncMove.maxPower}</td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </Table>
-                                                        </Card.Body>
-                                                    </Card>
-                                                    <Card>
-                                                        <Card.Body>
-                                                            <Table bordered hover size="sm">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td><b>HP</b></td>
-                                                                    <td>{unit.pokemon.stats[0]}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>ATK</b></td>
-                                                                    <td>{unit.pokemon.stats[1]}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>DEF</b></td>
-                                                                    <td>{unit.pokemon.stats[2]}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>SPATK</b></td>
-                                                                    <td>{unit.pokemon.stats[3]}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>SPDEF</b></td>
-                                                                    <td>{unit.pokemon.stats[4]}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>SPD</b></td>
-                                                                    <td>{unit.pokemon.stats[5]}</td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </Table>
-                                                        </Card.Body>
-                                                    </Card>
-                                                </CardDeck>
-                                            </Card.Body>
-                                        </Card>
-                                        <br/>
-                                        <CardDeck>
-                                            <Card>
-                                                <Card.Header>
-                                                    {unit.moves[0].name}
-                                                </Card.Header>
-                                                <Card.Body>
-                                                    <Table bordered hover size="sm">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><b>Type</b></td>
-                                                            <td>{(unit.moves[0].type === "0")?"Trainer Move":unit.moves[0].type}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect</b></td>
-                                                            <td>{(unit.moves[0].effect === "0")?"None":unit.moves[0].effect}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect%</b></td>
-                                                            <td>{(unit.moves[0].chance === 0.0)?"N/A":unit.moves[0].chance}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Power</b></td>
-                                                            <td>{(unit.moves[0].power === 0)?"N/A":unit.moves[0].power}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Accuracy</b></td>
-                                                            <td>{(unit.moves[0].accuracy === 0)?"N/A":unit.moves[0].accuracy}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Cost</b></td>
-                                                            <td>{(unit.moves[0].cost === 0)?"N/A":unit.moves[0].cost}</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </Table>
-                                                </Card.Body>
-                                            </Card>
-                                            <Card>
-                                                <Card.Header>
-                                                    {unit.moves[1].name}
-                                                </Card.Header>
-                                                <Card.Body>
-                                                    <Table bordered hover size="sm">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><b>Type</b></td>
-                                                            <td>{(unit.moves[1].type === "0")?"Trainer Move":unit.moves[1].type}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect</b></td>
-                                                            <td>{(unit.moves[1].effect === "0")?"None":unit.moves[1].effect}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect%</b></td>
-                                                            <td>{(unit.moves[1].chance === 0.0)?"N/A":unit.moves[1].chance}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Power</b></td>
-                                                            <td>{(unit.moves[1].power === 0)?"N/A":unit.moves[1].power}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Accuracy</b></td>
-                                                            <td>{(unit.moves[1].accuracy === 0)?"N/A":unit.moves[1].accuracy}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Cost</b></td>
-                                                            <td>{(unit.moves[1].cost === 0)?"N/A":unit.moves[1].cost}</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </Table>
-                                                </Card.Body>
-                                            </Card>
-                                            <Card>
-                                                <Card.Header>
-                                                    {unit.moves[2].name}
-                                                </Card.Header>
-                                                <Card.Body>
-                                                    <Table bordered hover size="sm">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><b>Type</b></td>
-                                                            <td>{(unit.moves[2].type === "0")?"Trainer Move":unit.moves[2].type}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect</b></td>
-                                                            <td>{(unit.moves[2].effect === "0")?"None":unit.moves[2].effect}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect%</b></td>
-                                                            <td>{(unit.moves[2].chance === 0.0)?"N/A":unit.moves[2].chance}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Power</b></td>
-                                                            <td>{(unit.moves[2].power === 0)?"N/A":unit.moves[2].power}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Accuracy</b></td>
-                                                            <td>{(unit.moves[2].accuracy === 0)?"N/A":unit.moves[2].accuracy}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Cost</b></td>
-                                                            <td>{(unit.moves[2].cost === 0)?"N/A":unit.moves[2].cost}</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </Table>
-                                                </Card.Body>
-                                            </Card>
-                                            <Card>
-                                                <Card.Header>
-                                                    {unit.moves[3].name}
-                                                </Card.Header>
-                                                <Card.Body>
-                                                    <Table bordered hover size="sm">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><b>Type</b></td>
-                                                            <td>{(unit.moves[3].type === "0")?"Trainer Move":unit.moves[3].type}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect</b></td>
-                                                            <td>{(unit.moves[3].effect === "0")?"None":unit.moves[3].effect}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Effect%</b></td>
-                                                            <td>{(unit.moves[3].chance === 0.0)?"N/A":unit.moves[3].chance}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Power</b></td>
-                                                            <td>{(unit.moves[3].power === 0)?"N/A":unit.moves[3].power}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Accuracy</b></td>
-                                                            <td>{(unit.moves[3].accuracy === 0)?"N/A":unit.moves[3].accuracy}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Cost</b></td>
-                                                            <td>{(unit.moves[3].cost === 0)?"N/A":unit.moves[3].cost}</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </Table>
-                                                </Card.Body>
-                                            </Card>
-                                        </CardDeck>
-                                    </Card.Body>
-                                </Accordion.Collapse>
-                            </Card>
-                        </Accordion>
-                    </div>
+                    UnitAccordion(unit)
                 )
             }
         }
@@ -651,3 +647,392 @@ function UTom(props){
         <div>{listItems}</div>
     )
 }
+
+function moveReading(move){
+    return(
+        <div>
+            <Card>
+                <Card.Body>
+                    <Table bordered hover size="sm">
+                        <tbody>
+                        <tr>
+                            <td><b>Type</b></td>
+                            <td>{(move.type === "0")?"Trainer Move":move.type}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Effect</b></td>
+                            <td>{(move.effect === "0")?"None":move.effect}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Effect%</b></td>
+                            <td>{(move.chance === 0.0)?"N/A":move.chance}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Power</b></td>
+                            <td>{(move.power === 0)?"N/A":move.power}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Accuracy</b></td>
+                            <td>{(move.accuracy === 0)?"N/A":move.accuracy}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Cost</b></td>
+                            <td>{(move.cost === 0)?"N/A":move.cost}</td>
+                        </tr>
+                        </tbody>
+                    </Table>
+                </Card.Body>
+            </Card>
+        </div>
+    )
+}
+function calcDamage(unit){
+    var atkBoost = 1;
+    if(curBoost === 2){
+        atkBoost = 1.4;
+    }else if(curBoost === 4){
+        atkBoost = 1.6;
+    }else if(curBoost === 6){
+        atkBoost = 1.8;
+    }
+    var realATK = curAtk * atkBoost;
+    var defBoost = 1;
+    if(curDefBoost === 2){
+        defBoost = 1.4;
+    }else if(curDefBoost === 4){
+        defBoost = 1.6;
+    }else if(curDefBoost === 6){
+        defBoost = 1.8;
+    }
+    var realDEF = defBoost * unit.pokemon.stats[2];
+    var targetmult = 1;
+    if(curEnemyMates === 2){
+        targetmult = 0.67;
+    }else if(curEnemyMates === 3){
+        targetmult = 0.5
+    }
+    var effective = 1;
+    if(curtype === unit.weakness){
+        effective = 2;
+    }
+    var part1 = (((2*curLevel)/5)+2);
+    var part2 = part1 * curMovePower * (realATK/realDEF);
+    var part3 = (part2/50)+2;
+    var damage = part3 * targetmult * effective;
+    return Math.round(damage);
+}
+function damageReading(unit){
+    return(
+        <div>
+            <Card>
+                <Card.Body>
+                    <Card>
+                        <Card.Body>
+                            <CardDeck>
+                                <Card>
+                                    <div className={"imageContainerCalc"}>
+                                        <img className={"imageCalc"} src={(unit.name === "MC")?"https://www.serebii.net/pokemonmasters/syncpairs/maincharacter.png":"https://www.serebii.net/pokemonmasters/syncpairs/" + unit.name.toLowerCase() + ".png"} alt={"alt"}/>
+                                    </div>
+                                </Card>
+                                <Card>
+                                    <Card.Body>
+                                        <Table bordered hover size="sm">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>HP</b></td>
+                                                <td>{unit.pokemon.stats[0]}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>ATK</b></td>
+                                                <td>{unit.pokemon.stats[1]}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>DEF</b></td>
+                                                <td>{unit.pokemon.stats[2]}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>SPATK</b></td>
+                                                <td>{unit.pokemon.stats[3]}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>SPDEF</b></td>
+                                                <td>{unit.pokemon.stats[4]}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>SPD</b></td>
+                                                <td>{unit.pokemon.stats[5]}</td>
+                                            </tr>
+                                            </tbody>
+                                        </Table>
+                                    </Card.Body>
+                                </Card>
+                                <Card>
+                                    <Card.Body>
+                                        <Table bordered hover size="sm">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Type</b></td>
+                                                <td>{unit.type}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Weakness</b></td>
+                                                <td>{unit.weakness}</td>
+                                            </tr>
+                                            </tbody>
+                                        </Table>
+                                    </Card.Body>
+                                </Card>
+                            </CardDeck>
+                            <Card>
+                                <Card.Header>
+                                    Results
+                                </Card.Header>
+                                <Card.Body>
+                                    {calcDamage(unit) + " damage dealt."}
+                                </Card.Body>
+                            </Card>
+                        </Card.Body>
+                    </Card>
+                </Card.Body>
+            </Card>
+        </div>
+    )
+}
+
+function UnitAccordion(unit){
+    return(
+        <div>
+            <Accordion>
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                        {(unit.name.includes("Sygna Suit"))?unit.name.substring("Sygna Suit ".length,unit.name.length) + " & " + unit.pokemon.name:unit.name + " & " + unit.pokemon.name}
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                        <Card.Body>
+                            <Card>
+                                <Card.Body>
+                                    <CardDeck>
+                                        <Card>
+                                            <div className={"imageContainer"}>
+                                                <img className={"image"} src={(unit.name === "MC")?"https://www.serebii.net/pokemonmasters/syncpairs/maincharacter.png":"https://www.serebii.net/pokemonmasters/syncpairs/" + unit.name.toLowerCase() + ".png"} alt={"alt"}/>
+                                            </div>
+                                        </Card>
+                                        <Card>
+                                            <Card.Body>
+                                                <Table bordered hover size="sm">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><b>Type</b></td>
+                                                        <td>{unit.type}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Weakness</b></td>
+                                                        <td>{unit.weakness}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Rarity</b></td>
+                                                        <td>{unit.rarity} stars</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Role</b></td>
+                                                        <td>{unit.role}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Passives</b></td>
+                                                        <td>{unit.passives.join()}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Sync Strength</b></td>
+                                                        <td>{unit.syncMove.basePower} - {unit.syncMove.maxPower}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </Card.Body>
+                                        </Card>
+                                        <Card>
+                                            <Card.Body>
+                                                <Table bordered hover size="sm">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><b>HP</b></td>
+                                                        <td>{unit.pokemon.stats[0]}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>ATK</b></td>
+                                                        <td>{unit.pokemon.stats[1]}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>DEF</b></td>
+                                                        <td>{unit.pokemon.stats[2]}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>SPATK</b></td>
+                                                        <td>{unit.pokemon.stats[3]}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>SPDEF</b></td>
+                                                        <td>{unit.pokemon.stats[4]}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>SPD</b></td>
+                                                        <td>{unit.pokemon.stats[5]}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </Card.Body>
+                                        </Card>
+                                    </CardDeck>
+                                </Card.Body>
+                            </Card>
+                            <br/>
+                            <CardDeck>
+                                <Card>
+                                    <Card.Header>
+                                        {unit.moves[0].name}
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <Table bordered hover size="sm">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Type</b></td>
+                                                <td>{(unit.moves[0].type === "0")?"Trainer Move":unit.moves[0].type}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect</b></td>
+                                                <td>{(unit.moves[0].effect === "0")?"None":unit.moves[0].effect}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect%</b></td>
+                                                <td>{(unit.moves[0].chance === 0.0)?"N/A":unit.moves[0].chance}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Power</b></td>
+                                                <td>{(unit.moves[0].power === 0)?"N/A":unit.moves[0].power}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Accuracy</b></td>
+                                                <td>{(unit.moves[0].accuracy === 0)?"N/A":unit.moves[0].accuracy}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cost</b></td>
+                                                <td>{(unit.moves[0].cost === 0)?"N/A":unit.moves[0].cost}</td>
+                                            </tr>
+                                            </tbody>
+                                        </Table>
+                                    </Card.Body>
+                                </Card>
+                                <Card>
+                                    <Card.Header>
+                                        {unit.moves[1].name}
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <Table bordered hover size="sm">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Type</b></td>
+                                                <td>{(unit.moves[1].type === "0")?"Trainer Move":unit.moves[1].type}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect</b></td>
+                                                <td>{(unit.moves[1].effect === "0")?"None":unit.moves[1].effect}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect%</b></td>
+                                                <td>{(unit.moves[1].chance === 0.0)?"N/A":unit.moves[1].chance}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Power</b></td>
+                                                <td>{(unit.moves[1].power === 0)?"N/A":unit.moves[1].power}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Accuracy</b></td>
+                                                <td>{(unit.moves[1].accuracy === 0)?"N/A":unit.moves[1].accuracy}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cost</b></td>
+                                                <td>{(unit.moves[1].cost === 0)?"N/A":unit.moves[1].cost}</td>
+                                            </tr>
+                                            </tbody>
+                                        </Table>
+                                    </Card.Body>
+                                </Card>
+                                <Card>
+                                    <Card.Header>
+                                        {unit.moves[2].name}
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <Table bordered hover size="sm">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Type</b></td>
+                                                <td>{(unit.moves[2].type === "0")?"Trainer Move":unit.moves[2].type}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect</b></td>
+                                                <td>{(unit.moves[2].effect === "0")?"None":unit.moves[2].effect}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect%</b></td>
+                                                <td>{(unit.moves[2].chance === 0.0)?"N/A":unit.moves[2].chance}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Power</b></td>
+                                                <td>{(unit.moves[2].power === 0)?"N/A":unit.moves[2].power}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Accuracy</b></td>
+                                                <td>{(unit.moves[2].accuracy === 0)?"N/A":unit.moves[2].accuracy}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cost</b></td>
+                                                <td>{(unit.moves[2].cost === 0)?"N/A":unit.moves[2].cost}</td>
+                                            </tr>
+                                            </tbody>
+                                        </Table>
+                                    </Card.Body>
+                                </Card>
+                                <Card>
+                                    <Card.Header>
+                                        {unit.moves[3].name}
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <Table bordered hover size="sm">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Type</b></td>
+                                                <td>{(unit.moves[3].type === "0")?"Trainer Move":unit.moves[3].type}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect</b></td>
+                                                <td>{(unit.moves[3].effect === "0")?"None":unit.moves[3].effect}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Effect%</b></td>
+                                                <td>{(unit.moves[3].chance === 0.0)?"N/A":unit.moves[3].chance}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Power</b></td>
+                                                <td>{(unit.moves[3].power === 0)?"N/A":unit.moves[3].power}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Accuracy</b></td>
+                                                <td>{(unit.moves[3].accuracy === 0)?"N/A":unit.moves[3].accuracy}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cost</b></td>
+                                                <td>{(unit.moves[3].cost === 0)?"N/A":unit.moves[3].cost}</td>
+                                            </tr>
+                                            </tbody>
+                                        </Table>
+                                    </Card.Body>
+                                </Card>
+                            </CardDeck>
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+            </Accordion>
+        </div>
+    )
+}
+
+ReactDOM.render(<Home/>, document.getElementById("root"));

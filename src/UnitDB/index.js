@@ -1,16 +1,16 @@
-export const unitList = [
+export const unitList=[
     {
-        id: 1,
-            name: "MC",
+        id: 0,
+        name: "MC",
         type: "Electric",
         rarity: 3,
         role: "Striker",
         weakness: "Ground",
         passives: ["Endurance"],
         pokemon: {
-        name:"Pikachu",
+            name:"Pikachu",
             stats:[399,194,83,255,110,210]
-    },
+        },
         moves: [
             {
                 name: "Thunder Shock",
@@ -49,23 +49,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 2,
-            name: "Brock",
+        id: 1,
+        name: "Brock",
         type: "Rock",
         rarity: 3,
         role: "Tech",
         weakness: "Grass",
         passives: ["Stoic 2"],
         pokemon: {
-        name:"Onix",
+            name:"Onix",
             stats:[465,161,144,52,115,194]
-    },
+        },
         moves: [
             {
                 name: "Rock Throw",
@@ -104,23 +104,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
         id: 2,
-            name: "Sygna Suit Brock",
+        name: "Sygna Suit Brock",
         type: "Rock",
         rarity: 3,
         role: "Striker",
         weakness: "Fighting",
         passives: ["Sand Fortress"],
         pokemon: {
-        name:"Tyranitar",
+            name:"Tyranitar",
             stats:[419,207,143,101,66,111]
-    },
+        },
         moves: [
             {
                 name: "Rock Tomb",
@@ -159,23 +159,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
         id: 3,
-            name: "Misty",
+        name: "Misty",
         type: "Water",
         rarity: 3,
         role: "Support",
         weakness: "Electric",
         passives: ["Helping Hand 2"],
         pokemon: {
-        name:"Starmie",
+            name:"Starmie",
             stats:[462,97,151,159,161,177]
-    },
+        },
         moves: [
             {
                 name: "Bubble Beam",
@@ -214,23 +214,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
         id: 4,
-            name: "Lt. Surge",
+        name: "Lt. Surge",
         type: "Electric",
         rarity: 3,
         role: "Tech",
         weakness: "Ground",
         passives: ["Last Word"],
         pokemon: {
-        name:"Voltorb",
+            name:"Voltorb",
             stats:[382,116,113,156,113,334]
-    },
+        },
         moves: [
             {
                 name: "Thunderbolt",
@@ -269,23 +269,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
         id: 5,
-            name: "Erika",
+        name: "Erika",
         type: "Grass",
         rarity: 3,
         role: "Tech",
         weakness: "Fire",
         passives: ["Piercing Gaze"],
         pokemon: {
-        name:"Vileplume",
+            name:"Vileplume",
             stats:[507,41,115,159,192,160]
-    },
+        },
         moves: [
             {
                 name: "Energy Ball",
@@ -324,23 +324,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
         id: 6,
-            name: "Blaine",
+        name: "Blaine",
         type: "Fire",
         rarity: 4,
         role: "Tech",
         weakness: "Fire",
         passives: ["Hostile Environment 1"],
         pokemon: {
-        name:"Ponyta",
+            name:"Ponyta",
             stats:[492,151,119,119,122,358]
-    },
+        },
         moves: [
             {
                 name: "Flame Wheel",
@@ -379,23 +379,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
         id: 7,
-            name: "Lorelei",
+        name: "Lorelei",
         type: "Ice",
         rarity: 4,
         role: "Tech",
         weakness: "Grass",
         passives: ["Hostile Environment 1"],
         pokemon: {
-        name:"Lapras",
+            name:"Lapras",
             stats:[500,103,137,188,186,207]
-    },
+        },
         moves: [
             {
                 name: "Ice Beam",
@@ -434,23 +434,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
         id: 8,
-            name: "Bruno",
+        name: "Bruno",
         type: "Fighting",
         rarity: 4,
         role: "Sttriker",
         weakness: "Flying",
         passives: ["Critical Strike 2"],
         pokemon: {
-        name:"Machamp",
+            name:"Machamp",
             stats:[495,256,108,150,90,154]
-    },
+        },
         moves: [
             {
                 name: "Karate Chop",
@@ -489,23 +489,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
         id: 9,
-            name: "Agatha",
+        name: "Agatha",
         type: "Ghost",
         rarity: 4,
         role: "Tech",
         weakness: "Dark",
         passives: ["Wide Awake"],
         pokemon: {
-        name:"Gengar",
+            name:"Gengar",
             stats:[417,119,102,283,137,307]
-    },
+        },
         moves: [
             {
                 name: "Lick",
@@ -544,23 +544,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 9,
-            name: "Agatha",
+        id: 10,
+        name: "Agatha",
         type: "Ghost",
         rarity: 4,
         role: "Tech",
         weakness: "Dark",
         passives: ["Wide Awake"],
         pokemon: {
-        name:"Mega Gengar",
+            name:"Mega Gengar",
             stats:[417,119,102,339,150,337]
-    },
+        },
         moves: [
             {
                 name: "Hex",
@@ -599,23 +599,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 10,
-            name: "Kris",
+        id: 11,
+        name: "Kris",
         type: "Water",
         rarity: 5,
         role: "Striker",
         weakness: "Grass",
         passives: ["Endurance","Water Shift"],
         pokemon: {
-        name:"Totodile",
+            name:"Totodile",
             stats:[522,199,108,90,96,234]
-    },
+        },
         moves: [
             {
                 name: "Waterfall",
@@ -654,243 +654,243 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
-    },
-    {
-        id: 10,
-            name: "Kris",
-        type: "Water",
-        rarity: 5,
-        role: "Striker",
-        weakness: "Grass",
-        passives: ["Endurance","Water Shift"],
-        pokemon: {
-        name:"Croconaw",
-            stats:[537,220,111,95,99,255]
-    },
-        moves: [
-            {
-                name: "Waterfall",
-                type: "Phys",
-                effect: "Flinch",
-                chance: 20.0,
-                power: 54,
-                accuracy: 100,
-                cost: 2
-            },
-            {
-                name: "X Attack",
-                type: "0",
-                effect: "Atk2",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            },
-            {
-                name: "Mega Kick",
-                type: "Phys",
-                effect: "0",
-                chance: 0.0,
-                power: 200,
-                accuracy: 75,
-                cost: 3
-            },
-            {
-                name: "Pick Up the Pace!",
-                type: "0",
-                effect: "Spd2 | Focus",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            }
-        ],
-            syncMove: {
-        basePower: 200,
-            maxPower: 240
-    }
-    },
-    {
-        id: 10,
-            name: "Kris",
-        type: "Water",
-        rarity: 5,
-        role: "Striker",
-        weakness: "Grass",
-        passives: ["Endurance","Water Shift"],
-        pokemon: {
-        name:"Feraligatr",
-            stats:[560,229,116,104,103,265]
-    },
-        moves: [
-            {
-                name: "Waterfall",
-                type: "Phys",
-                effect: "Flinch",
-                chance: 20.0,
-                power: 54,
-                accuracy: 100,
-                cost: 2
-            },
-            {
-                name: "X Attack",
-                type: "0",
-                effect: "Atk2",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            },
-            {
-                name: "Mega Kick",
-                type: "Phys",
-                effect: "0",
-                chance: 0.0,
-                power: 200,
-                accuracy: 75,
-                cost: 3
-            },
-            {
-                name: "Pick Up the Pace!",
-                type: "0",
-                effect: "Spd2 | Focus",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            }
-        ],
-            syncMove: {
-        basePower: 200,
-            maxPower: 240
-    }
-    },
-    {
-        id: 11,
-            name: "Bugsy",
-        type: "Bug",
-        rarity: 3,
-        role: "Striker",
-        weakness: "Rock",
-        passives: ["Critical Strike 2"],
-        pokemon: {
-        name:"Beedrill",
-            stats:[370,270,70,99,85,255]
-    },
-        moves: [
-            {
-                name: "Fell Stinger",
-                type: "Phys",
-                effect: "0",
-                chance: 0.0,
-                power: 52,
-                accuracy: 100,
-                cost: 2
-            },
-            {
-                name: "Sure Crit",
-                type: "0",
-                effect: "Focus",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            },
-            {
-                name: "Twineedle",
-                type: "Phys",
-                effect: "PSN",
-                chance: 21.0,
-                power: 48,
-                accuracy: 100,
-                cost: 2
-            },
-            {
-                name: "Beehold My Research!",
-                type: "0",
-                effect: "Spd1 | Evd3",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            }
-        ],
-            syncMove: {
-        basePower: 160,
-            maxPower: 192
-    }
-    },
-    {
-        id: 11,
-            name: "Bugsy",
-        type: "Bug",
-        rarity: 3,
-        role: "Striker",
-        weakness: "Rock",
-        passives: ["Critical Strike 2"],
-        pokemon: {
-        name:"Mega Beedrill",
-            stats:[370,323,70,99,85,305]
-    },
-        moves: [
-            {
-                name: "Fell Stinger",
-                type: "Phys",
-                effect: "0",
-                chance: 0.0,
-                power: 52,
-                accuracy: 100,
-                cost: 2
-            },
-            {
-                name: "Sure Crit",
-                type: "0",
-                effect: "Focus",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            },
-            {
-                name: "Twineedle",
-                type: "Phys",
-                effect: "PSN",
-                chance: 21.0,
-                power: 48,
-                accuracy: 100,
-                cost: 2
-            },
-            {
-                name: "Beehold My Research!",
-                type: "0",
-                effect: "Spd1 | Evd3",
-                chance: 0.0,
-                power: 0,
-                accuracy: 0,
-                cost: 0
-            }
-        ],
-            syncMove: {
-        basePower: 160,
-            maxPower: 192
-    }
+        }
     },
     {
         id: 12,
-            name: "Whitney",
+        name: "Kris",
+        type: "Water",
+        rarity: 5,
+        role: "Striker",
+        weakness: "Grass",
+        passives: ["Endurance","Water Shift"],
+        pokemon: {
+            name:"Croconaw",
+            stats:[537,220,111,95,99,255]
+        },
+        moves: [
+            {
+                name: "Waterfall",
+                type: "Phys",
+                effect: "Flinch",
+                chance: 20.0,
+                power: 54,
+                accuracy: 100,
+                cost: 2
+            },
+            {
+                name: "X Attack",
+                type: "0",
+                effect: "Atk2",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            },
+            {
+                name: "Mega Kick",
+                type: "Phys",
+                effect: "0",
+                chance: 0.0,
+                power: 200,
+                accuracy: 75,
+                cost: 3
+            },
+            {
+                name: "Pick Up the Pace!",
+                type: "0",
+                effect: "Spd2 | Focus",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            }
+        ],
+        syncMove: {
+            basePower: 200,
+            maxPower: 240
+        }
+    },
+    {
+        id: 13,
+        name: "Kris",
+        type: "Water",
+        rarity: 5,
+        role: "Striker",
+        weakness: "Grass",
+        passives: ["Endurance","Water Shift"],
+        pokemon: {
+            name:"Feraligatr",
+            stats:[560,229,116,104,103,265]
+        },
+        moves: [
+            {
+                name: "Waterfall",
+                type: "Phys",
+                effect: "Flinch",
+                chance: 20.0,
+                power: 54,
+                accuracy: 100,
+                cost: 2
+            },
+            {
+                name: "X Attack",
+                type: "0",
+                effect: "Atk2",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            },
+            {
+                name: "Mega Kick",
+                type: "Phys",
+                effect: "0",
+                chance: 0.0,
+                power: 200,
+                accuracy: 75,
+                cost: 3
+            },
+            {
+                name: "Pick Up the Pace!",
+                type: "0",
+                effect: "Spd2 | Focus",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            }
+        ],
+        syncMove: {
+            basePower: 200,
+            maxPower: 240
+        }
+    },
+    {
+        id: 14,
+        name: "Bugsy",
+        type: "Bug",
+        rarity: 3,
+        role: "Striker",
+        weakness: "Rock",
+        passives: ["Critical Strike 2"],
+        pokemon: {
+            name:"Beedrill",
+            stats:[370,270,70,99,85,255]
+        },
+        moves: [
+            {
+                name: "Fell Stinger",
+                type: "Phys",
+                effect: "0",
+                chance: 0.0,
+                power: 52,
+                accuracy: 100,
+                cost: 2
+            },
+            {
+                name: "Sure Crit",
+                type: "0",
+                effect: "Focus",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            },
+            {
+                name: "Twineedle",
+                type: "Phys",
+                effect: "PSN",
+                chance: 21.0,
+                power: 48,
+                accuracy: 100,
+                cost: 2
+            },
+            {
+                name: "Beehold My Research!",
+                type: "0",
+                effect: "Spd1 | Evd3",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            }
+        ],
+        syncMove: {
+            basePower: 160,
+            maxPower: 192
+        }
+    },
+    {
+        id: 15,
+        name: "Bugsy",
+        type: "Bug",
+        rarity: 3,
+        role: "Striker",
+        weakness: "Rock",
+        passives: ["Critical Strike 2"],
+        pokemon: {
+            name:"Mega Beedrill",
+            stats:[370,323,70,99,85,305]
+        },
+        moves: [
+            {
+                name: "Fell Stinger",
+                type: "Phys",
+                effect: "0",
+                chance: 0.0,
+                power: 52,
+                accuracy: 100,
+                cost: 2
+            },
+            {
+                name: "Sure Crit",
+                type: "0",
+                effect: "Focus",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            },
+            {
+                name: "Twineedle",
+                type: "Phys",
+                effect: "PSN",
+                chance: 21.0,
+                power: 48,
+                accuracy: 100,
+                cost: 2
+            },
+            {
+                name: "Beehold My Research!",
+                type: "0",
+                effect: "Spd1 | Evd3",
+                chance: 0.0,
+                power: 0,
+                accuracy: 0,
+                cost: 0
+            }
+        ],
+        syncMove: {
+            basePower: 160,
+            maxPower: 192
+        }
+    },
+    {
+        id: 16,
+        name: "Whitney",
         type: "Normal",
         rarity: 4,
         role: "Tech",
         weakness: "Fighting",
         passives: ["Mad Strength 2"],
         pokemon: {
-        name:"Miltank",
+            name:"Miltank",
             stats:[507,244,93,102,109,223]
-    },
+        },
         moves: [
             {
                 name: "Body Slam",
@@ -929,23 +929,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 13,
-            name: "Pryce",
+        id: 17,
+        name: "Pryce",
         type: "Ice",
         rarity: 3,
         role: "Tech",
         weakness: "Electric",
         passives: ["SuperDuper Effective 2"],
         pokemon: {
-        name:"Seel",
+            name:"Seel",
             stats:[487,194,58,194,112,128]
-    },
+        },
         moves: [
             {
                 name: "Ice Beam",
@@ -984,23 +984,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 14,
-            name: "Clair",
+        id: 18,
+        name: "Clair",
         type: "Dragon",
         rarity: 4,
         role: "Striker",
         weakness: "Dragon",
         passives: ["Racing Rain 2"],
         pokemon: {
-        name:"Kingdra",
+            name:"Kingdra",
             stats:[475,204,121,258,112,202]
-    },
+        },
         moves: [
             {
                 name: "Dragon Breath",
@@ -1039,23 +1039,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 15,
-            name: "Janine",
+        id: 19,
+        name: "Janine",
         type: "Poison",
         rarity: 3,
         role: "Tech",
         weakness: "Fire",
         passives: ["Hostile Environment 1"],
         pokemon: {
-        name:"Araidos",
+            name:"Araidos",
             stats:[387,172,133,100,128,189]
-    },
+        },
         moves: [
             {
                 name: "Cross Poison",
@@ -1094,23 +1094,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 16,
-            name: "Will",
+        id: 20,
+        name: "Will",
         type: "Psychic",
         rarity: 4,
         role: "Tech",
         weakness: "Electric",
         passives: ["Impervious"],
         pokemon: {
-        name:"Xatu",
+            name:"Xatu",
             stats:[405,151,168,201,168,304]
-    },
+        },
         moves: [
             {
                 name: "Stored Power",
@@ -1149,23 +1149,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 17,
-            name: "Karen",
+        id: 21,
+        name: "Karen",
         type: "Dark",
         rarity: 5,
         role: "Stirker",
         weakness: "Fighting",
         passives: ["Flameproof","Wide Awake"],
         pokemon: {
-        name:"Houndoom",
+            name:"Houndoom",
             stats:[460,268,141,306,141,288]
-    },
+        },
         moves: [
             {
                 name: "Bite",
@@ -1204,23 +1204,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 17,
-            name: "Karen",
+        id: 22,
+        name: "Karen",
         type: "Dark",
         rarity: 5,
         role: "Stirker",
         weakness: "Fighting",
         passives: ["Flameproof","Wide Awake"],
         pokemon: {
-        name:"Mega Houndoom",
+            name:"Mega Houndoom",
             stats:[460,268,155,336,141,345]
-    },
+        },
         moves: [
             {
                 name: "Snarl",
@@ -1259,23 +1259,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 18,
-            name: "Brendan",
+        id: 23,
+        name: "Brendan",
         type: "Grass",
         rarity: 5,
         role: "Stirker",
         weakness: "Poison",
         passives: ["Haste","Lithe"],
         pokemon: {
-        name:"Treeko",
+            name:"Treeko",
             stats:[430,306,123,306,123,340]
-    },
+        },
         moves: [
             {
                 name: "Bullet Seed",
@@ -1314,23 +1314,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 19,
-            name: "Roxanne",
+        id: 24,
+        name: "Roxanne",
         type: "Rock",
         rarity: 3,
         role: "Support",
         weakness: "Fighting",
         passives: ["Surging Sand 5"],
         pokemon: {
-        name:"Nosepass",
+            name:"Nosepass",
             stats:[299,96,160,101,160,85]
-    },
+        },
         moves: [
             {
                 name: "Ancient Power",
@@ -1369,23 +1369,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 20,
-            name: "Brawly",
+        id: 25,
+        name: "Brawly",
         type: "Fighting",
         rarity: 3,
         role: "Tech",
         weakness: "Flying",
         passives: ["Power Reserves 2"],
         pokemon: {
-        name:"Makuhita",
+            name:"Makuhita",
             stats:[599,160,71,52,82,147]
-    },
+        },
         moves: [
             {
                 name: "Rock Smash",
@@ -1424,23 +1424,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 21,
-            name: "Flannery",
+        id: 26,
+        name: "Flannery",
         type: "Fire",
         rarity: 3,
         role: "Tech",
         weakness: "Water",
         passives: ["Impervious"],
         pokemon: {
-        name:"Torkoal",
+            name:"Torkoal",
             stats:[382,67,162,173,144,160]
-    },
+        },
         moves: [
             {
                 name: "Ember",
@@ -1479,23 +1479,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 22,
-            name: "Norman",
+        id: 27,
+        name: "Norman",
         type: "Normal",
         rarity: 3,
         role: "Striker",
         weakness: "Fighting",
         passives: ["Power Reserves 2"],
         pokemon: {
-        name:"Slaking",
+            name:"Slaking",
             stats:[445,272,110,31,110,100]
-    },
+        },
         moves: [
             {
                 name: "Body Slam",
@@ -1534,23 +1534,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 300,
+        syncMove: {
+            basePower: 300,
             maxPower: 360
-    }
+        }
     },
     {
-        id: 23,
-            name: "Winona",
+        id: 28,
+        name: "Winona",
         type: "Flying",
         rarity: 3,
         role: "Tech",
         weakness: "Electric",
         passives: ["Racing Rain 2"],
         pokemon: {
-        name:"Pelipper",
+            name:"Pelipper",
             stats:[390,156,113,156,143,192]
-    },
+        },
         moves: [
             {
                 name: "Air Slash",
@@ -1589,23 +1589,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 24,
-            name: "Tate",
+        id: 29,
+        name: "Tate",
         type: "Psychic",
         rarity: 3,
         role: "Striker",
         weakness: "Dark",
         passives: ["Power Chain 3","Headstrong","Unbending"],
         pokemon: {
-        name:"Solrock",
+            name:"Solrock",
             stats:[419,270,147,83,99,128]
-    },
+        },
         moves: [
             {
                 name: "Zen Headbutt",
@@ -1644,23 +1644,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 25,
-            name: "Liza",
+        id: 30,
+        name: "Liza",
         type: "Psychic",
         rarity: 3,
         role: "Support",
         weakness: "Bug",
         passives: ["Power Chain 3","Dauntless","Stalwart"],
         pokemon: {
-        name:"Lunatone",
+            name:"Lunatone",
             stats:[519,95,99,128,130,112]
-    },
+        },
         moves: [
             {
                 name: "Confusion",
@@ -1699,23 +1699,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 26,
-            name: "Phoebe",
+        id: 31,
+        name: "Phoebe",
         type: "Ghost",
         rarity: 5,
         role: "Support",
         weakness: "Dark",
         passives: ["Pass It On","Vigilance"],
         pokemon: {
-        name:"Dusclops",
+            name:"Dusclops",
             stats:[477,181,197,130,214,148]
-    },
+        },
         moves: [
             {
                 name: "Shadow Punch",
@@ -1754,23 +1754,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 27,
-            name: "Drake",
+        id: 32,
+        name: "Drake",
         type: "Dragon",
         rarity: 4,
         role: "Support",
         weakness: "Fairy",
         passives: ["Terrify 1"],
         pokemon: {
-        name:"Salamence",
+            name:"Salamence",
             stats:[425,218,159,214,158,157]
-    },
+        },
         moves: [
             {
                 name: "Dragon Claw",
@@ -1809,23 +1809,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 28,
-            name: "Noland",
+        id: 33,
+        name: "Noland",
         type: "Bug",
         rarity: 4,
         role: "Striker",
         weakness: "Flying",
         passives: ["Headstrong"],
         pokemon: {
-        name:"Pinsir",
+            name:"Pinsir",
             stats:[477,305,118,71,118,251]
-    },
+        },
         moves: [
             {
                 name: "Fury Cutter",
@@ -1864,23 +1864,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 28,
-            name: "Noland",
+        id: 34,
+        name: "Noland",
         type: "Bug",
         rarity: 4,
         role: "Striker",
         weakness: "Flying",
         passives: ["Headstrong"],
         pokemon: {
-        name:"Mega Pinsir",
+            name:"Mega Pinsir",
             stats:[477,365,141,71,118,251]
-    },
+        },
         moves: [
             {
                 name: "Fury Cutter",
@@ -1919,23 +1919,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 29,
-            name: "Barry",
+        id: 35,
+        name: "Barry",
         type: "Water",
         rarity: 3,
         role: "Striker",
         weakness: "Grass",
         passives: ["Power Flux 5"],
         pokemon: {
-        name:"Piplup",
+            name:"Piplup",
             stats:[399,160,110,255,110,161]
-    },
+        },
         moves: [
             {
                 name: "Bubble",
@@ -1974,23 +1974,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 29,
-            name: "Barry",
+        id: 36,
+        name: "Barry",
         type: "Water",
         rarity: 3,
         role: "Striker",
         weakness: "Grass",
         passives: ["Power Flux 5"],
         pokemon: {
-        name:"Prinplup",
+            name:"Prinplup",
             stats:[412,164,113,276,113,168]
-    },
+        },
         moves: [
             {
                 name: "Bubble",
@@ -2029,23 +2029,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 29,
-            name: "Barry",
+        id: 37,
+        name: "Barry",
         type: "Water",
         rarity: 3,
         role: "Striker",
         weakness: "Grass",
         passives: ["Power Flux 5"],
         pokemon: {
-        name:"Empoleon",
+            name:"Empoleon",
             stats:[429,170,117,286,117,190]
-    },
+        },
         moves: [
             {
                 name: "Bubble",
@@ -2084,23 +2084,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 30,
-            name: "Roark",
+        id: 38,
+        name: "Roark",
         type: "Rock",
         rarity: 3,
         role: "Striker",
         weakness: "Water",
         passives: ["Headstrong"],
         pokemon: {
-        name:"Cranidos",
+            name:"Cranidos",
             stats:[655,257,80,80,79,157]
-    },
+        },
         moves: [
             {
                 name: "Smack Down",
@@ -2139,23 +2139,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 31,
-            name: "Gardenia",
+        id: 39,
+        name: "Gardenia",
         type: "Grass",
         rarity: 4,
         role: "Striker",
         weakness: "Flying",
         passives: ["Speeding Sun 2"],
         pokemon: {
-        name:"Roserade",
+            name:"Roserade",
             stats:[354,102,84,304,175,252]
-    },
+        },
         moves: [
             {
                 name: "Absorb",
@@ -2194,23 +2194,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 32,
-            name: "Maylene",
+        id: 40,
+        name: "Maylene",
         type: "Fighting",
         rarity: 3,
         role: "Support",
         weakness: "Fairy",
         passives: ["On the Ropes 3"],
         pokemon: {
-        name:"Meditite",
+            name:"Meditite",
             stats:[402,102,145,95,145,186]
-    },
+        },
         moves: [
             {
                 name: "Rock Smash",
@@ -2249,23 +2249,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 33,
-            name: "Crasher Wake",
+        id: 41,
+        name: "Crasher Wake",
         type: "Water",
         rarity: 3,
         role: "Striker",
         weakness: "Grass",
         passives: ["Racing Rain 2","Aggravation 1"],
         pokemon: {
-        name:"Floatzel",
+            name:"Floatzel",
             stats:[375,182,116,182,126,316]
-    },
+        },
         moves: [
             {
                 name: "Waterfall",
@@ -2304,23 +2304,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 34,
-            name: "Candice",
+        id: 42,
+        name: "Candice",
         type: "Ice",
         rarity: 3,
         role: "Tech",
         weakness: "Fire",
         passives: ["Antifreeze","Snow Shelter"],
         pokemon: {
-        name:"Abomasnow",
+            name:"Abomasnow",
             stats:[437,182,103,127,105,192]
-    },
+        },
         moves: [
             {
                 name: "Ice Punch",
@@ -2359,23 +2359,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 35,
-            name: "Flint",
+        id: 43,
+        name: "Flint",
         type: "Fire",
         rarity: 4,
         role: "Striker",
         weakness: "Water",
         passives: ["Power Reserves 2"],
         pokemon: {
-        name:"Infernape",
+            name:"Infernape",
             stats:[427,275,104,275,104,208]
-    },
+        },
         moves: [
             {
                 name: "Fire Punch",
@@ -2414,23 +2414,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 36,
-            name: "Thorton",
+        id: 44,
+        name: "Thorton",
         type: "Steel",
         rarity: 4,
         role: "Tech",
         weakness: "Fire",
         passives: ["Aggravation 1"],
         pokemon: {
-        name:"Bronzong",
+            name:"Bronzong",
             stats:[379,200,187,198,185,152]
-    },
+        },
         moves: [
             {
                 name: "Gyro Ball",
@@ -2469,23 +2469,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 37,
-            name: "Cheryl",
+        id: 45,
+        name: "Cheryl",
         type: "Normal",
         rarity: 3,
         role: "Support",
         weakness: "Fighting",
         passives: ["Healing Hand 2"],
         pokemon: {
-        name:"Blissey",
+            name:"Blissey",
             stats:[612,67,38,143,164,110]
-    },
+        },
         moves: [
             {
                 name: "Hyper Voice",
@@ -2524,23 +2524,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 300,
+        syncMove: {
+            basePower: 300,
             maxPower: 360
-    }
+        }
     },
     {
-        id: 38,
-            name: "Marley",
+        id: 46,
+        name: "Marley",
         type: "Fire",
         rarity: 3,
         role: "Support",
         weakness: "Ground",
         passives: ["Haste"],
         pokemon: {
-        name:"Arcanine",
+            name:"Arcanine",
             stats:[519,141,159,140,145,177]
-    },
+        },
         moves: [
             {
                 name: "Flame Wheel",
@@ -2579,23 +2579,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 39,
-            name: "Rosa",
+        id: 47,
+        name: "Rosa",
         type: "Grass",
         rarity: 5,
         role: "Support",
         weakness: "Flying",
         passives: ["Stalwart"],
         pokemon: {
-        name:"Snivy",
+            name:"Snivy",
             stats:[512,74,162,96,183,148]
-    },
+        },
         moves: [
             {
                 name: "Energy Ball",
@@ -2634,23 +2634,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 39,
-            name: "Rosa",
+        id: 48,
+        name: "Rosa",
         type: "Grass",
         rarity: 5,
         role: "Support",
         weakness: "Flying",
         passives: ["Stalwart"],
         pokemon: {
-        name:"Servine",
+            name:"Servine",
             stats:[535,76,166,99,204,152]
-    },
+        },
         moves: [
             {
                 name: "Energy Ball",
@@ -2689,23 +2689,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 39,
-            name: "Rosa",
+        id: 49,
+        name: "Rosa",
         type: "Grass",
         rarity: 5,
         role: "Support",
         weakness: "Flying",
         passives: ["Stalwart"],
         pokemon: {
-        name:"Serperior",
+            name:"Serperior",
             stats:[595,79,172,104,224,158]
-    },
+        },
         moves: [
             {
                 name: "Energy Ball",
@@ -2744,23 +2744,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 40,
-            name: "Clay",
+        id: 50,
+        name: "Clay",
         type: "Ground",
         rarity: 3,
         role: "Tech",
         weakness: "Grass",
         passives: ["Antitoxin"],
         pokemon: {
-        name:"Palpitoad",
+            name:"Palpitoad",
             stats:[385,163,114,127,129,190]
-    },
+        },
         moves: [
             {
                 name: "Mud Shot",
@@ -2799,23 +2799,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 41,
-            name: "Skyla",
+        id: 51,
+        name: "Skyla",
         type: "Flying",
         rarity: 3,
         role: "Support",
         weakness: "Rock",
         passives: ["Haste"],
         pokemon: {
-        name:"Swanna",
+            name:"Swanna",
             stats:[502,158,134,174,134,177]
-    },
+        },
         moves: [
             {
                 name: "Gust",
@@ -2854,23 +2854,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 42,
-            name: "Brycen",
+        id: 52,
+        name: "Brycen",
         type: "Ice",
         rarity: 3,
         role: "Tech",
         weakness: "Fighting",
         passives: ["Snow Shelter","Healing Hail 1"],
         pokemon: {
-        name:"Cryogonal",
+            name:"Cryogonal",
             stats:[414,162,92,162,116,282]
-    },
+        },
         moves: [
             {
                 name: "Ice Beam",
@@ -2909,23 +2909,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 43,
-            name: "Iris",
+        id: 53,
+        name: "Iris",
         type: "Dragon",
         rarity: 3,
         role: "Striker",
         weakness: "Ice",
         passives: ["Power Reserves 2"],
         pokemon: {
-        name:"Haxorus",
+            name:"Haxorus",
             stats:[355,213,110,53,83,134]
-    },
+        },
         moves: [
             {
                 name: "Dragon Claw",
@@ -2964,23 +2964,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 44,
-            name: "Roxie",
+        id: 54,
+        name: "Roxie",
         type: "Poison",
         rarity: 4,
         role: "Striker",
         weakness: "Psychic",
         passives: ["Hit and Run 2"],
         pokemon: {
-        name:"Whirlipede",
+            name:"Whirlipede",
             stats:[400,255,134,100,104,297]
-    },
+        },
         moves: [
             {
                 name: "Cross Poison",
@@ -3019,23 +3019,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 45,
-            name: "Marlon",
+        id: 55,
+        name: "Marlon",
         type: "Water",
         rarity: 3,
         role: "Tech",
         weakness: "Grass",
         passives: ["Unbending"],
         pokemon: {
-        name:"Carracosta",
+            name:"Carracosta",
             stats:[369,179,135,79,99,109]
-    },
+        },
         moves: [
             {
                 name: "Aqua Tail",
@@ -3074,23 +3074,23 @@ export const unitList = [
                 cost: 2
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 46,
-            name: "Shauntal",
+        id: 56,
+        name: "Shauntal",
         type: "Ghost",
         rarity: 4,
         role: "Striker",
         weakness: "Rock",
         passives: ["Unhindered","Power Reserves 2"],
         pokemon: {
-        name:"Chandelure",
+            name:"Chandelure",
             stats:[392,96,88,298,124,187]
-    },
+        },
         moves: [
             {
                 name: "Hex",
@@ -3129,23 +3129,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 47,
-            name: "Marshal",
+        id: 57,
+        name: "Marshal",
         type: "Fighting",
         rarity: 4,
         role: "Striker",
         weakness: "Psychic",
         passives: ["Gritty 5"],
         pokemon: {
-        name:"Conkeldurr",
+            name:"Conkeldurr",
             stats:[440,254,110,104,68,109]
-    },
+        },
         moves: [
             {
                 name: "Rock Smash",
@@ -3184,23 +3184,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 48,
-            name: "Grant",
+        id: 58,
+        name: "Grant",
         type: "Rock",
         rarity: 4,
         role: "Tech",
         weakness: "Steel",
         passives: ["Snow Shelter","Sand Shelter","Aggravation 1"],
         pokemon: {
-        name:"Amaura",
+            name:"Amaura",
             stats:[495,152,125,87,139,225]
-    },
+        },
         moves: [
             {
                 name: "Rock Tomb",
@@ -3239,23 +3239,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 49,
-            name: "Korrina",
+        id: 59,
+        name: "Korrina",
         type: "Fighting",
         rarity: 3,
         role: "Striker",
         weakness: "Fire",
         passives: ["Unflappable"],
         pokemon: {
-        name:"Lucario",
+            name:"Lucario",
             stats:[362,271,99,255,83,138]
-    },
+        },
         moves: [
             {
                 name: "Vacuum Wave",
@@ -3294,23 +3294,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 49,
-            name: "Korrina",
+        id: 60,
+        name: "Korrina",
         type: "Fighting",
         rarity: 3,
         role: "Striker",
         weakness: "Fire",
         passives: ["Unflappable"],
         pokemon: {
-        name:"Mega Lucario",
+            name:"Mega Lucario",
             stats:[362,325,99,255,83,165]
-    },
+        },
         moves: [
             {
                 name: "Power-up Punch",
@@ -3349,23 +3349,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 160,
+        syncMove: {
+            basePower: 160,
             maxPower: 192
-    }
+        }
     },
     {
-        id: 50,
-            name: "Ramos",
+        id: 61,
+        name: "Ramos",
         type: "Grass",
         rarity: 3,
         role: "Tech",
         weakness: "Ice",
         passives: ["Defense Crush 2"],
         pokemon: {
-        name:"Weepinbell",
+            name:"Weepinbell",
             stats:[395,173,102,127,112,192]
-    },
+        },
         moves: [
             {
                 name: "Bullet Seed",
@@ -3404,23 +3404,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 51,
-            name: "Wulfric",
+        id: 62,
+        name: "Wulfric",
         type: "Ice",
         rarity: 3,
         role: "Striker",
         weakness: "Fire",
         passives: ["Clearheaded"],
         pokemon: {
-        name:"Avalugg",
+            name:"Avalugg",
             stats:[419,254,100,34,82,84]
-    },
+        },
         moves: [
             {
                 name: "Ice Fang",
@@ -3459,23 +3459,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 52,
-            name: "Siebold",
+        id: 63,
+        name: "Siebold",
         type: "Water",
         rarity: 4,
         role: "Striker",
         weakness: "Electric",
         passives: ["Critical Focus 1"],
         pokemon: {
-        name:"Clawitzer",
+            name:"Clawitzer",
             stats:[444,118,134,286,134,205]
-    },
+        },
         moves: [
             {
                 name: "Water Pulse",
@@ -3514,23 +3514,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 53,
-            name: "Wikstrom",
+        id: 64,
+        name: "Wikstrom",
         type: "Steel",
         rarity: 4,
         role: "Tech",
         weakness: "Fire",
         passives: ["Stance Change","Vigilance"],
         pokemon: {
-        name:"Aegislash-Shield",
+            name:"Aegislash-Shield",
             stats:[467,73,186,73,186,221]
-    },
+        },
         moves: [
             {
                 name: "Gyro Ball",
@@ -3569,23 +3569,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 53,
-            name: "Wikstrom",
+        id: 65,
+        name: "Wikstrom",
         type: "Steel",
         rarity: 4,
         role: "Tech",
         weakness: "Fire",
         passives: ["Stance Change","Vigilance"],
         pokemon: {
-        name:"Aegislash-Blade",
+            name:"Aegislash-Blade",
             stats:[467,219,55,219,55,221]
-    },
+        },
         moves: [
             {
                 name: "Gyro Ball",
@@ -3624,23 +3624,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 54,
-            name: "Hau",
+        id: 66,
+        name: "Hau",
         type: "Electric",
         rarity: 4,
         role: "Striker",
         weakness: "Ground",
         passives: ["First Aid 4"],
         pokemon: {
-        name:"Raichu-Alolan",
+            name:"Raichu-Alolan",
             stats:[352,74,120,271,140,208]
-    },
+        },
         moves: [
             {
                 name: "Thunder Shock",
@@ -3679,23 +3679,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
+        syncMove: {
             basePower: 250,
             maxPower: 300
         }
     },
     {
-        id: 55,
-            name: "Sophocles",
+        id: 67,
+        name: "Sophocles",
         type: "Electric",
         rarity: 4,
         role: "Tech",
         weakness: "Ground",
         passives: ["Endurance"],
         pokemon: {
-        name:"Togedemaru",
+            name:"Togedemaru",
             stats:[422,184,117,119,134,303]
-    },
+        },
         moves: [
             {
                 name: "Zing Zap",
@@ -3734,23 +3734,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 56,
-            name: "Mina",
+        id: 68,
+        name: "Mina",
         type: "Fairy",
         rarity: 3,
         role: "Tech",
         weakness: "Steel",
         passives: ["Impervious"],
         pokemon: {
-        name:"Granbull",
+            name:"Granbull",
             stats:[419,178,112,127,86,159]
-    },
+        },
         moves: [
             {
                 name: "Dazzling Gleam",
@@ -3789,23 +3789,23 @@ export const unitList = [
                 cost: 3
             }
         ],
-            syncMove: {
-        basePower: 200,
+        syncMove: {
+            basePower: 200,
             maxPower: 240
-    }
+        }
     },
     {
-        id: 57,
-            name: "Olivia",
+        id: 69,
+        name: "Olivia",
         type: "Rock",
         rarity: 5,
         role: "Striker",
         weakness: "Grass",
         passives: ["Amped Up 1"],
         pokemon: {
-        name:"Lycanroc-Midnight",
+            name:"Lycanroc-Midnight",
             stats:[472,357,130,72,130,216]
-    },
+        },
         moves: [
             {
                 name: "Rock Throw",
@@ -3844,23 +3844,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 58,
-            name: "Hapu",
+        id: 70,
+        name: "Hapu",
         type: "Ground",
         rarity: 3,
         role: "Striker",
         weakness: "Grass",
         passives: ["Clearheaded"],
         pokemon: {
-        name:"Mudsdale",
+            name:"Mudsdale",
             stats:[399,198,146,192,67,128]
-    },
+        },
         moves: [
             {
                 name: "Mud-Slap",
@@ -3899,23 +3899,23 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
-        basePower: 250,
+        syncMove: {
+            basePower: 250,
             maxPower: 300
-    }
+        }
     },
     {
-        id: 59,
-            name: "Kahili",
+        id: 71,
+        name: "Kahili",
         type: "Flying",
         rarity: 4,
         role: "Striker",
         weakness: "Ice",
         passives: ["Piercing Gaze"],
         pokemon: {
-        name:"Toucannon",
+            name:"Toucannon",
             stats:[447,334,136,123,124,203]
-    },
+        },
         moves: [
             {
                 name: "Peck",
@@ -3954,7 +3954,7 @@ export const unitList = [
                 cost: 0
             }
         ],
-            syncMove: {
+        syncMove: {
             basePower: 250,
             maxPower: 300
         }
